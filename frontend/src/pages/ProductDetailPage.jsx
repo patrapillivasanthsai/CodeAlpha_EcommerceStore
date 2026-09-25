@@ -90,7 +90,7 @@ const ProductDetailPage = () => {
             </div>
           </div>
 
-          <div className="product-detail-price">${parseFloat(product.price).toFixed(2)}</div>
+          <div className="product-detail-price">₹{parseFloat(product.price).toLocaleString('en-IN', { minimumFractionDigits: 2 })}</div>
 
           <p className="product-detail-desc">{product.description}</p>
 

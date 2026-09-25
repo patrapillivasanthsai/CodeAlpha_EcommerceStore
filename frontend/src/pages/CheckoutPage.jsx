@@ -14,8 +14,8 @@ const CheckoutPage = () => {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
 
-  const tax = parseFloat((subtotal * 0.08).toFixed(2));
-  const shipping = subtotal >= 100 || subtotal === 0 ? 0 : 9.99;
+  const tax = parseFloat((subtotal * 0.18).toFixed(2));
+  const shipping = subtotal >= 999 || subtotal === 0 ? 0 : 99;
   const grandTotal = parseFloat((subtotal + tax + shipping).toFixed(2));
 
   const handlePlaceOrder = async (e) => {
@@ -84,7 +84,7 @@ const CheckoutPage = () => {
               <textarea
                 id="address"
                 rows="3"
-                placeholder="123 Innovation Way, Suite 400, San Francisco, CA 94105"
+                placeholder="Plot 42, Hitech City, Hyderabad, Telangana 500081"
                 value={shippingAddress}
                 onChange={(e) => setShippingAddress(e.target.value)}
                 required
@@ -141,7 +141,7 @@ const CheckoutPage = () => {
             {cartItems.map((item) => (
               <div key={item.cartItemId || item.productId} className="preview-item">
                 <span>{item.name} (x{item.quantity})</span>
-                <span>${(item.price * item.quantity).toFixed(2)}</span>
+                <span>₹{(item.price * item.quantity).toLocaleString('en-IN', { minimumFractionDigits: 2 })}</span>
               </div>
             ))}
           </div>
@@ -150,22 +150,22 @@ const CheckoutPage = () => {
 
           <div className="summary-row">
             <span>Subtotal</span>
-            <span>${subtotal.toFixed(2)}</span>
+            <span>₹{subtotal.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</span>
           </div>
           <div className="summary-row">
-            <span>Tax (8%)</span>
-            <span>${tax.toFixed(2)}</span>
+            <span>GST (18%)</span>
+            <span>₹{tax.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</span>
           </div>
           <div className="summary-row">
             <span>Shipping</span>
-            <span>{shipping === 0 ? 'FREE' : `$${shipping.toFixed(2)}`}</span>
+            <span>{shipping === 0 ? 'FREE' : `₹${shipping.toFixed(2)}`}</span>
           </div>
 
           <div className="summary-divider"></div>
 
           <div className="summary-row total-row">
             <span>Grand Total</span>
-            <span>${grandTotal.toFixed(2)}</span>
+            <span>₹{grandTotal.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</span>
           </div>
 
           <button

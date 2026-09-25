@@ -100,10 +100,10 @@ const OrderHistoryPage = () => {
                       <h4>{item.name}</h4>
                       <p>Category: {item.category || 'General'}</p>
                       <span>
-                        Qty: {item.quantity} × ${item.unitPrice.toFixed(2)}
+                        Qty: {item.quantity} × ₹{item.unitPrice.toLocaleString('en-IN', { minimumFractionDigits: 2 })}
                       </span>
                     </div>
-                    <div className="order-item-total">${item.totalPrice.toFixed(2)}</div>
+                    <div className="order-item-total">₹{item.totalPrice.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</div>
                   </div>
                 ))}
               </div>
@@ -120,10 +120,10 @@ const OrderHistoryPage = () => {
                 </div>
 
                 <div className="order-pricing-breakdown">
-                  <div className="price-row">Subtotal: ${order.subtotal.toFixed(2)}</div>
-                  <div className="price-row">Tax: ${order.taxAmount.toFixed(2)}</div>
-                  <div className="price-row">Shipping: {order.shippingFee === 0 ? 'FREE' : `$${order.shippingFee.toFixed(2)}`}</div>
-                  <div className="price-row grand-total">Total: ${order.totalAmount.toFixed(2)}</div>
+                  <div className="price-row">Subtotal: ₹{order.subtotal.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</div>
+                  <div className="price-row">GST (18%): ₹{order.taxAmount.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</div>
+                  <div className="price-row">Shipping: {order.shippingFee === 0 ? 'FREE' : `₹${order.shippingFee.toFixed(2)}`}</div>
+                  <div className="price-row grand-total">Total: ₹{order.totalAmount.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</div>
                 </div>
               </div>
             </div>

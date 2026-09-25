@@ -70,8 +70,8 @@ const createOrder = async (req, res, next) => {
     }
 
     subtotal = parseFloat(subtotal.toFixed(2));
-    const taxAmount = parseFloat((subtotal * 0.08).toFixed(2)); // 8% sales tax
-    const shippingFee = subtotal >= 100 ? 0.00 : 9.99; // Free shipping over $100
+    const taxAmount = parseFloat((subtotal * 0.18).toFixed(2)); // 18% GST
+    const shippingFee = subtotal >= 999 ? 0.00 : 99.00; // Free shipping over ₹999
     const totalAmount = parseFloat((subtotal + taxAmount + shippingFee).toFixed(2));
 
     // 4. Create Order in orders table

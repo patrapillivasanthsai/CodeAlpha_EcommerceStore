@@ -58,7 +58,7 @@ const ProductCard = ({ product }) => {
         </p>
 
         <div className="product-card-footer">
-          <div className="product-price">${parseFloat(product.price).toFixed(2)}</div>
+          <div className="product-price">₹{parseFloat(product.price).toLocaleString('en-IN', { minimumFractionDigits: 2 })}</div>
 
           <button
             onClick={handleAddToCart}
