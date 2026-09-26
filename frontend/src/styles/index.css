@@ -1,36 +1,89 @@
+/* ============================================================
+   CodeAlpha E-Commerce Store — Global CSS Variables & Reset
+   ============================================================ */
+
+/* Google Fonts import */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* ---------- Light Mode Variables (default) ---------- */
 :root {
-  --primary: #2563eb;
-  --primary-hover: #1d4ed8;
-  --secondary: #0f172a;
-  --accent: #f59e0b;
-  --background: #f8fafc;
-  --surface: #ffffff;
-  --text-main: #1e293b;
-  --text-muted: #64748b;
-  --border-color: #e2e8f0;
-  --danger: #ef4444;
-  --success: #10b981;
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --transition: all 0.2s ease-in-out;
+  --primary:        #2563eb;
+  --primary-hover:  #1d4ed8;
+  --primary-light:  #eff6ff;
+  --secondary:      #0f172a;
+  --accent:         #f59e0b;
+  --accent-hover:   #d97706;
+  --background:     #f1f5f9;
+  --surface:        #ffffff;
+  --surface-hover:  #f8fafc;
+  --text-main:      #0f172a;
+  --text-muted:     #64748b;
+  --text-light:     #94a3b8;
+  --border-color:   #e2e8f0;
+  --border-hover:   #cbd5e1;
+  --danger:         #ef4444;
+  --danger-light:   #fef2f2;
+  --success:        #10b981;
+  --success-light:  #ecfdf5;
+  --warning:        #f59e0b;
+  --info:           #3b82f6;
+  --radius-xs:      4px;
+  --radius-sm:      8px;
+  --radius-md:      12px;
+  --radius-lg:      20px;
+  --radius-xl:      28px;
+  --shadow-xs:      0 1px 2px rgba(0,0,0,0.04);
+  --shadow-sm:      0 2px 8px rgba(0,0,0,0.06);
+  --shadow-md:      0 4px 16px rgba(0,0,0,0.10);
+  --shadow-lg:      0 8px 32px rgba(0,0,0,0.12);
+  --shadow-xl:      0 20px 60px rgba(0,0,0,0.15);
+  --transition:     all 0.2s ease;
+  --transition-slow: all 0.35s ease;
+  --navbar-height:  68px;
 }
 
-* {
+/* ---------- Dark Mode Variables ---------- */
+[data-theme='dark'] {
+  --primary:        #3b82f6;
+  --primary-hover:  #2563eb;
+  --primary-light:  #1e3a5f;
+  --secondary:      #f1f5f9;
+  --background:     #0f172a;
+  --surface:        #1e293b;
+  --surface-hover:  #273548;
+  --text-main:      #f1f5f9;
+  --text-muted:     #94a3b8;
+  --text-light:     #64748b;
+  --border-color:   #334155;
+  --border-hover:   #475569;
+  --danger-light:   #3b1515;
+  --success-light:  #0d2e1f;
+  --shadow-xs:      0 1px 2px rgba(0,0,0,0.3);
+  --shadow-sm:      0 2px 8px rgba(0,0,0,0.4);
+  --shadow-md:      0 4px 16px rgba(0,0,0,0.5);
+  --shadow-lg:      0 8px 32px rgba(0,0,0,0.6);
+  --shadow-xl:      0 20px 60px rgba(0,0,0,0.7);
+}
+
+/* ---------- Reset & Base ---------- */
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   background-color: var(--background);
   color: var(--text-main);
-  line-height: 1.5;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {
@@ -43,8 +96,32 @@ button {
   cursor: pointer;
   border: none;
   background: none;
+  outline: none;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
 }
 
 input, select, textarea {
   font-family: inherit;
 }
+
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul, ol { list-style: none; }
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--background); }
+::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }

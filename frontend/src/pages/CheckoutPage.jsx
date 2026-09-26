@@ -51,8 +51,9 @@ const CheckoutPage = () => {
 
   if (cartItems.length === 0 && !submitting) {
     return (
-      <div className="checkout-page empty-checkout">
-        <h2>No items in cart for checkout</h2>
+      <div className="empty-cart-state">
+        <h2>Nothing to Checkout</h2>
+        <p>Your cart is empty. Add some products before proceeding to checkout.</p>
         <button onClick={() => navigate('/products')} className="btn btn-primary">
           Browse Products
         </button>
@@ -63,8 +64,8 @@ const CheckoutPage = () => {
   return (
     <div className="checkout-page">
       <div className="page-header">
-        <h1>Simulated Checkout Flow</h1>
-        <p>Complete your shipping information to place your internship test order.</p>
+        <h1>Secure Checkout</h1>
+        <p>Complete your order details below. All transactions are simulated for demo purposes.</p>
       </div>
 
       {error && (
@@ -137,11 +138,11 @@ const CheckoutPage = () => {
         <div className="checkout-summary-sidebar">
           <h3>Order Review ({cartItems.length} items)</h3>
           
-          <div className="checkout-items-preview">
+          <div className="preview-items-list">
             {cartItems.map((item) => (
               <div key={item.cartItemId || item.productId} className="preview-item">
-                <span>{item.name} (x{item.quantity})</span>
-                <span>₹{(item.price * item.quantity).toLocaleString('en-IN', { minimumFractionDigits: 2 })}</span>
+                <span className="preview-item-name">{item.name} ×{item.quantity}</span>
+                <span className="preview-item-price">₹{(item.price * item.quantity).toLocaleString('en-IN', { minimumFractionDigits: 2 })}</span>
               </div>
             ))}
           </div>

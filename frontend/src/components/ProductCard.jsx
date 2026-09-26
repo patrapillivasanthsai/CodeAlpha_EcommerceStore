@@ -36,7 +36,7 @@ const ProductCard = ({ product }) => {
 
       <div className="product-info">
         <div className="product-rating">
-          <Star size={16} className="star-icon" fill="#ffb703" color="#ffb703" />
+          <Star size={14} fill="#f59e0b" color="#f59e0b" />
           <span>{product.rating ? parseFloat(product.rating).toFixed(1) : '4.5'}</span>
           <span className="stock-info">
             {isOutOfStock ? (
@@ -58,26 +58,25 @@ const ProductCard = ({ product }) => {
         </p>
 
         <div className="product-card-footer">
-          <div className="product-price">₹{parseFloat(product.price).toLocaleString('en-IN', { minimumFractionDigits: 2 })}</div>
+          <div className="product-price">
+            ₹{parseFloat(product.price).toLocaleString('en-IN', { minimumFractionDigits: 2 })}
+          </div>
 
           <button
             onClick={handleAddToCart}
             disabled={isOutOfStock || added}
             className={`btn-add-cart ${added ? 'added' : ''}`}
+            aria-label={added ? 'Added to cart' : `Add ${product.name} to cart`}
           >
             {added ? (
-              <>
-                <Check size={18} /> Added
-              </>
+              <><Check size={16} /> Added</>
             ) : (
-              <>
-                <ShoppingCart size={18} /> Add
-              </>
+              <><ShoppingCart size={16} /> Add</>
             )}
           </button>
         </div>
 
-        {message && <div className="card-error-toast">{message}</div>}
+        {message && <div className="card-error-toast" role="alert">{message}</div>}
       </div>
     </div>
   );

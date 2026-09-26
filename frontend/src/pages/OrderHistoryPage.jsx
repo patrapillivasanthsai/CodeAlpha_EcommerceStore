@@ -56,10 +56,10 @@ const OrderHistoryPage = () => {
       )}
 
       {orders.length === 0 ? (
-        <div className="empty-orders-card">
-          <Package size={64} className="empty-orders-icon" />
-          <h2>No Orders Placed Yet</h2>
-          <p>You haven't placed any orders with CodeAlpha Store so far.</p>
+        <div className="empty-cart-state">
+          <Package size={52} />
+          <h2>No Orders Yet</h2>
+          <p>You haven't placed any orders with CodeAlpha Store yet. Start shopping!</p>
           <Link to="/products" className="btn btn-primary">
             Explore Catalog <ArrowRight size={18} />
           </Link>

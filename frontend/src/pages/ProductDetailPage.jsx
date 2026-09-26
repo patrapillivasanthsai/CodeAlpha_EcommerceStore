@@ -91,6 +91,7 @@ const ProductDetailPage = () => {
           </div>
 
           <div className="product-detail-price">₹{parseFloat(product.price).toLocaleString('en-IN', { minimumFractionDigits: 2 })}</div>
+          <p className="price-gst-note">Inclusive of all applicable taxes (18% GST)</p>
 
           <p className="product-detail-desc">{product.description}</p>
 
@@ -141,13 +142,13 @@ const ProductDetailPage = () => {
           {/* Value Highlights */}
           <div className="value-props">
             <div className="prop-item">
-              <Truck size={20} /> <span>Simulated 2-Day Express Delivery</span>
+              <Truck size={18} /> <span>₹99 delivery · FREE above ₹999</span>
             </div>
             <div className="prop-item">
-              <ShieldCheck size={20} /> <span>100% Guaranteed Transaction Security</span>
+              <ShieldCheck size={18} /> <span>Secure JWT-protected checkout</span>
             </div>
             <div className="prop-item">
-              <RefreshCw size={20} /> <span>Easy 30-Day Simulated Returns</span>
+              <RefreshCw size={18} /> <span>Easy 30-day returns accepted</span>
             </div>
           </div>
         </div>

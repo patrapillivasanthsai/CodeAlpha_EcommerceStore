@@ -18,10 +18,10 @@ const CartPage = () => {
 
   if (cartItems.length === 0) {
     return (
-      <div className="cart-page empty-cart-container">
-        <ShoppingCart size={64} className="empty-cart-icon" />
-        <h2>Your Shopping Cart is Empty</h2>
-        <p>Looks like you haven't added any products to your cart yet.</p>
+      <div className="empty-cart-state">
+        <ShoppingCart size={56} />
+        <h2>Your Cart is Empty</h2>
+        <p>Looks like you haven't added any products yet. Browse our catalog to get started.</p>
         <Link to="/products" className="btn btn-primary">
           Start Shopping <ArrowRight size={18} />
         </Link>
@@ -132,6 +132,10 @@ const CartPage = () => {
             <span>Estimated Total</span>
             <span>₹{grandTotal.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</span>
           </div>
+
+          <p className="shipping-note">
+            {subtotal >= 999 ? '✓ You qualify for FREE shipping!' : `Add ₹${(999 - subtotal).toLocaleString('en-IN')} more for FREE shipping`}
+          </p>
 
           <button
             onClick={() => navigate('/checkout')}
